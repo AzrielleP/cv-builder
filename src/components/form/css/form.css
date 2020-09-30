@@ -1,0 +1,41 @@
+h2 {
+  font: 700 2em "Raleway", sans-serif;
+  color: #1d3557;
+}
+
+.category {
+  padding: 1.5em;
+}
+
+label p {
+  margin: 0.5em 0;
+  font: bold 1em "Roboto", sans-serif;
+  text-transform: uppercase;
+  color: #457b9d;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 0.5px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 0.8em;
+  margin-bottom: 1.5em;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+  color: #050a0f;
+}
+
+.generateButton {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin: 1em;
+  padding: 1em;
+  background-color: #e63946;
+  font: bold 0.8em "Roboto", sans-serif;
+  text-transform: uppercase;
+  color: #f4fdf1;
+}
+
+/*# sourceMappingURL=form.css.map */

@@ -1,0 +1,56 @@
+$head-font: 'Raleway', sans-serif;
+$body-font: 'Roboto', sans-serif;
+
+$dark-blue: #1d3557;
+$blue: #457b9d;
+$light-blue: #a8dadc;
+$light-grey: #e5e5e5;
+$white: #f4fdf1;
+$black: #050a0f;
+$red: #e63946;
+
+// Heading
+h2 {
+  font: 700 2em $head-font;
+  color: $dark-blue;
+}
+
+// Containers
+.category {
+  padding: 1.5em;
+}
+
+// inputs and textareas
+label {
+  p {
+    margin: 0.5em 0;
+    font: bold 1em $body-font;
+    text-transform: uppercase;
+    color: $blue;
+  }
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 0.5px solid $light-grey;
+  border-radius: 5px;
+  padding: 0.8em;
+  margin-bottom: 1.5em;
+  outline: none;
+  font-family: $body-font;
+  color: $black;
+}
+
+// Buttons
+.generateButton {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  margin: 1em;
+  padding: 1em;
+  background-color: $red;
+  font: bold 0.8em $body-font;
+  text-transform: uppercase;
+  color: $white;
+}
