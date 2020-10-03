@@ -1,45 +1,12 @@
 import React, { Component } from 'react';
 
 class GeneralInfo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: '',
-      title: '',
-      careerSummary: '',
-      contact: {
-        phone: '',
-        email: '',
-        address: '',
-        website: '',
-        linkedIn: '',
-        gitHub: '',
-      },
-    };
 
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const { name, value, className } = event.target;
-    className === 'contact' ?
-    this.setState({
-      ...this.state,
-      contact: {
-        ...this.state.contact,
-        [name]: value,
-      }
-    })
-    : 
-    this.setState({
-        [name]: value,
-        contact: {
-        ...this.state.contact
-        }
-      })
-  }
-
+  
   render() {
+    const value = this.props.generalInfo;
+    const handler = this.props.handleInputChange;
+
     return (
       <div className="category">
         <h2>General Info</h2>
@@ -52,8 +19,9 @@ class GeneralInfo extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={this.state.name}
-                onChange={this.handleChange}
+                value={value.name}
+                onChange= {handler}
+                  
                 required
               />
             <label htmlFor="title">
@@ -62,8 +30,8 @@ class GeneralInfo extends Component {
                 type="text"
                 name="title"
                 id="title"
-                value={this.state.title}
-                onChange={this.handleChange}
+                value={value.title}
+                onChange={handler}
                 required
               />
             </label>
@@ -73,8 +41,8 @@ class GeneralInfo extends Component {
             <textarea
               id="careerSummary"
               name = "careerSummary"
-              value={this.state.careerSummary}
-              onChange={this.handleChange}
+              value={value.careerSummary}
+              onChange={handler}
               rows = "7"
             />
           </label>
@@ -87,9 +55,9 @@ class GeneralInfo extends Component {
                 type="text"
                 name="address"
                 id="address"
-                className = "contact"
-                value={this.state.contact.address}
-                onChange={this.handleChange}
+                className = "subCategory"
+                value={value.contact.address}
+                onChange={handler}
                 required
               />
             </label>
@@ -99,9 +67,9 @@ class GeneralInfo extends Component {
                 type="email"
                 name="email"
                 id="email"
-                className = "contact"
-                value={this.state.contact.email}
-                onChange={this.handleChange}
+                className = "subCategory"
+                value={value.contact.email}
+                onChange={handler}
                 required
               />
             </label>
@@ -111,9 +79,9 @@ class GeneralInfo extends Component {
                 type="number"
                 name="phone"
                 id="phone"
-                className = "contact"
-                value={this.state.contact.phone}
-                onChange={this.handleChange}
+                className = "subCategory"
+                value={value.contact.phone}
+                onChange={handler}
                 required
               />
             </label>
@@ -125,9 +93,9 @@ class GeneralInfo extends Component {
                 type="text"
                 name="website"
                 id="website"
-                className = "contact"
-                value={this.state.contact.website}
-                onChange={this.handleChange}
+                className = "subCategory"
+                value={value.contact.website}
+                onChange={handler}
               />
             </label>
             <label htmlFor="linkedIn">
@@ -136,9 +104,9 @@ class GeneralInfo extends Component {
               type="text"
               name="linkedIn"
               id="linkedIn"
-              className = "contact"
-              value={this.state.contact.linkedIn}
-              onChange={this.handleChange}
+              className = "subCategory"
+              value={value.contact.linkedIn}
+              onChange={handler}
             />
           </label>
           <label htmlFor="gitHub">
@@ -147,9 +115,9 @@ class GeneralInfo extends Component {
               type="text"
               name="gitHub"
               id="gitHub"
-              className = "contact"
-              value={this.state.contact.gitHub}
-              onChange={this.handleChange}
+              className = "subCategory"
+              value={value.contact.gitHub}
+              onChange={handler}
             />
           </label>
           </div>
