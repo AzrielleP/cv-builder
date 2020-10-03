@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Form from './components/form/Form';
-import Output from './components/Output';
+import Output from './components/output/Output';
 
 import './css/App.css';
 
@@ -33,11 +33,11 @@ class App extends Component {
 
 render() {
   return (
-    <div>
+    <main>
       {this.state.form && <Form moveToOutput = {this.handleOutput}/>}
       {this.state.output && <Output moveToForm = {this.handleForm} />}
 
-    </div>
+    </main>
   )
 }
 }
