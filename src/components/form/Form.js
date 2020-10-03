@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './css/form.css';
 
 // Import child components
-import GeneralInfo  from './form-child-components/General-Info';
+import GeneralInfo  from './form-child-components/GeneralInfoForm';
 
 class Form extends Component {
     constructor(props) {
