@@ -5,124 +5,106 @@ import './css/form.css';
 import GeneralInfo  from './form-child-components/GeneralInfoForm';
 
 class Form extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-                name: '',
-                title: '',
-                careerSummary: '',
-                contact: {
-                    phone: '',
-                    email: '',
-                    address: '',
-                    website: '',
-                    linkedIn: '',
-                    gitHub: '',
-                },
-            
-        }
-
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    // handleInputChange(event, category, subCategory) {
-        
-    //     const { name, value, className } = event.target;
-    //     className === 'subCategory' ?
-    //     this.setState({
-    //       ...this.state,
-    //       [category]: {
-    //         [subCategory]: {
-    //             ...this.state[category][subCategory],
-    //             [name]: value,
-    //         },
-    //       },
-    //     })
-    //     : 
-    //     this.setState({
-    //         ...this.state,
-    //         [category]: {
-    //             [name]: value,
-    //            [subCategory]: {
-    //                ...this.state[category][subCategory]
-    //            }
-    //         },
-            
-    //     })
-    // }
-
-    componentDidMount() {
-        const data = JSON.parse(localStorage.getItem('data'));
-        if (localStorage.getItem('data')) {
-          this.setState({
-            name: data.name,
-            title: data.title,
-            careerSummary: data.careerSummary,
-            contact: {
-              phone: data.contact.phone,
-              email: data.contact.email,
-              address: data.contact.address,
-              website: data.contact.website,
-              linkedIn: data.contact.linkedIn,
-              gitHub: data.contact.gitHub,
-            },
-          })
-        }
-        else {
-          this.setState({
-            name: '',
-            title: '',
-            careerSummary: '',
-            contact: {
-              phone: '',
-              email: '',
-              address: '',
-              website: '',
-              linkedIn: '',
-              gitHub: '',
-            }
-          })
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      generalInfo: {
+        contact: {
+        },
       }
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+  // handleInputChange(e, category, subCategory) {
+  //   const { name, value, className } = e.target;
+  //   if (className === 'subCategory') {
+  //     this.setState({
+  //       ...this.state,
+  //       [category]: {
+  //         ...this.state[category],
+  //         [subCategory]: {
+  //           ...this.state[category][subCategory],
+  //           [name]: value,
+  //         },
+  //       }
+  //     })
+  //   }
+  //   else {
+  //     this.setState({
+  //       ...this.state,
+  //       [category]: {
+  //         [name]:value,
+  //         ...this.state[category],
+  //         [subCategory]: {
+  //           ...this.state[category][subCategory]
+  //         }
+  //       } 
+  //     })
+  //   }
+  // }
 
-    handleInputChange(event) {
-        
-        const { name, value, className } = event.target;
-        className === 'subCategory' ?
-        this.setState({
-          ...this.state,
+  handleInputChange(e) {
+    const {name, value, className} = e.target;
+    if (className === 'subCategory') {
+      this.setState({
+        generalInfo: {
+          ...this.state.generalInfo,
           contact: {
-            ...this.state.contact,
-            [name]: value,
-            },
-        })
-        : 
-        this.setState({
-            [name]:value,
-            contact: {
-                ...this.state.contact
-            }
-            
-        })
+            ...this.state.generalInfo.contact,
+          [name] : value,
+          }
+        }
+      })
     }
+    else {
+      this.setState({
+        generalInfo: {
+          ...this.state.generalInfo,
+          [name] : value,
+          contact: {
+            ...this.state.generalInfo.contact
+          }
+        }
+      })
+    }
+  }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        this.props.moveToOutput();
-        localStorage.setItem('data', JSON.stringify(this.state));
-        
+  componentDidMount() {
+    const data = JSON.parse(localStorage.getItem('data'));
+    if (data) {
+      this.setState({
+        generalInfo: data.generalInfo
+      })
     }
+    else {
+      this.setState({
+        generalInfo: {
+          contact: {}
+        }
+      })
+    }
+  }
 
-    render() {
-        return(
-            <form onSubmit = {this.handleSubmit}>
-                <GeneralInfo handleInputChange = {this.handleInputChange} generalInfo = {this.state} />
-                <button className = "generateButton">Generate</button>
-            </form>
-        )
-    }
+  handleSubmit(event) {
+      event.preventDefault();
+      this.props.moveToOutput();
+      localStorage.setItem('data', JSON.stringify(this.state));
+      
+  }
+
+  render() {
+    console.log(this.state)
+      return(
+          <form onSubmit = {this.handleSubmit}>
+              <GeneralInfo 
+              handleInputChange = {this.handleInputChange} 
+              generalInfo = {this.state} />
+              <button className = "generateButton">Generate</button>
+          </form>
+      )
+  }
 }
 
 export default Form;

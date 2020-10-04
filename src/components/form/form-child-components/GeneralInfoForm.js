@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class GeneralInfo extends Component {
-
   
   render() {
     const value = this.props.generalInfo;
@@ -10,7 +9,7 @@ class GeneralInfo extends Component {
     return (
       <div className="category">
         <h2>General Info</h2>
-        <div>
+        <div className = "divider">
           <div>
             <label htmlFor="name">
               <p>Full Name *</p>
@@ -19,7 +18,7 @@ class GeneralInfo extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={value.name}
+                value={value.generalInfo.name || ''}
                 onChange= {handler}
                   
                 required
@@ -30,7 +29,7 @@ class GeneralInfo extends Component {
                 type="text"
                 name="title"
                 id="title"
-                value={value.title}
+                value={value.generalInfo.title || ''}
                 onChange={handler}
                 required
               />
@@ -41,7 +40,7 @@ class GeneralInfo extends Component {
             <textarea
               id="careerSummary"
               name = "careerSummary"
-              value={value.careerSummary}
+              value={value.generalInfo.careerSummary || ''}
               onChange={handler}
               rows = "7"
             />
@@ -56,7 +55,7 @@ class GeneralInfo extends Component {
                 name="address"
                 id="address"
                 className = "subCategory"
-                value={value.contact.address}
+                value={value.generalInfo.contact.address || ''}
                 onChange={handler}
                 required
               />
@@ -68,7 +67,7 @@ class GeneralInfo extends Component {
                 name="email"
                 id="email"
                 className = "subCategory"
-                value={value.contact.email}
+                value={value.generalInfo.contact.email || ''}
                 onChange={handler}
                 required
               />
@@ -80,7 +79,7 @@ class GeneralInfo extends Component {
                 name="phone"
                 id="phone"
                 className = "subCategory"
-                value={value.contact.phone}
+                value={value.generalInfo.contact.phone || ''}
                 onChange={handler}
                 required
               />
@@ -94,7 +93,7 @@ class GeneralInfo extends Component {
                 name="website"
                 id="website"
                 className = "subCategory"
-                value={value.contact.website}
+                value={value.generalInfo.contact.website || ''}
                 onChange={handler}
               />
             </label>
@@ -105,7 +104,7 @@ class GeneralInfo extends Component {
               name="linkedIn"
               id="linkedIn"
               className = "subCategory"
-              value={value.contact.linkedIn}
+              value={value.generalInfo.contact.linkedIn || ''}
               onChange={handler}
             />
           </label>
@@ -116,7 +115,7 @@ class GeneralInfo extends Component {
               name="gitHub"
               id="gitHub"
               className = "subCategory"
-              value={value.contact.gitHub}
+              value={value.generalInfo.contact.gitHub || ''}
               onChange={handler}
             />
           </label>
