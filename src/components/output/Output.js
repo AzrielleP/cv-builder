@@ -9,7 +9,7 @@ class Output extends Component {
         return(
                 <div>
                     <div>
-                        Edit
+                        <button type = "button" onClick = {this.props.moveToForm}>Edit</button>
                     </div>
                     <div className = "toPrint">
                         <GeneralInfo />
