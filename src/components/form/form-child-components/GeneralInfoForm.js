@@ -18,7 +18,7 @@ class GeneralInfo extends Component {
                 type="text"
                 name="name"
                 id="name"
-                value={value.generalInfo.name || ''}
+                value={value.name || ''}
                 onChange= {handler}
                   
                 required
@@ -29,7 +29,7 @@ class GeneralInfo extends Component {
                 type="text"
                 name="title"
                 id="title"
-                value={value.generalInfo.title || ''}
+                value={value.title || ''}
                 onChange={handler}
                 required
               />
@@ -40,7 +40,7 @@ class GeneralInfo extends Component {
             <textarea
               id="careerSummary"
               name = "careerSummary"
-              value={value.generalInfo.careerSummary || ''}
+              value={value.careerSummary || ''}
               onChange={handler}
               rows = "7"
             />
@@ -55,7 +55,7 @@ class GeneralInfo extends Component {
                 name="address"
                 id="address"
                 className = "subCategory"
-                value={value.generalInfo.contact.address || ''}
+                value={value.contact.address || ''}
                 onChange={handler}
                 required
               />
@@ -67,7 +67,7 @@ class GeneralInfo extends Component {
                 name="email"
                 id="email"
                 className = "subCategory"
-                value={value.generalInfo.contact.email || ''}
+                value={value.contact.email || ''}
                 onChange={handler}
                 required
               />
@@ -79,7 +79,7 @@ class GeneralInfo extends Component {
                 name="phone"
                 id="phone"
                 className = "subCategory"
-                value={value.generalInfo.contact.phone || ''}
+                value={value.contact.phone || ''}
                 onChange={handler}
                 required
               />
@@ -93,7 +93,7 @@ class GeneralInfo extends Component {
                 name="website"
                 id="website"
                 className = "subCategory"
-                value={value.generalInfo.contact.website || ''}
+                value={value.contact.website || ''}
                 onChange={handler}
               />
             </label>
@@ -104,7 +104,7 @@ class GeneralInfo extends Component {
               name="linkedIn"
               id="linkedIn"
               className = "subCategory"
-              value={value.generalInfo.contact.linkedIn || ''}
+              value={value.contact.linkedIn || ''}
               onChange={handler}
             />
           </label>
@@ -115,7 +115,7 @@ class GeneralInfo extends Component {
               name="gitHub"
               id="gitHub"
               className = "subCategory"
-              value={value.generalInfo.contact.gitHub || ''}
+              value={value.contact.gitHub || ''}
               onChange={handler}
             />
           </label>

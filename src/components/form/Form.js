@@ -17,38 +17,11 @@ class Form extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   
-  // handleInputChange(e, category, subCategory) {
-  //   const { name, value, className } = e.target;
-  //   if (className === 'subCategory') {
-  //     this.setState({
-  //       ...this.state,
-  //       [category]: {
-  //         ...this.state[category],
-  //         [subCategory]: {
-  //           ...this.state[category][subCategory],
-  //           [name]: value,
-  //         },
-  //       }
-  //     })
-  //   }
-  //   else {
-  //     this.setState({
-  //       ...this.state,
-  //       [category]: {
-  //         [name]:value,
-  //         ...this.state[category],
-  //         [subCategory]: {
-  //           ...this.state[category][subCategory]
-  //         }
-  //       } 
-  //     })
-  //   }
-  // }
-
   handleInputChange(e) {
     const {name, value, className} = e.target;
     if (className === 'subCategory') {
       this.setState({
+        ...this.state,
         generalInfo: {
           ...this.state.generalInfo,
           contact: {
@@ -60,6 +33,7 @@ class Form extends Component {
     }
     else {
       this.setState({
+        ...this.state,
         generalInfo: {
           ...this.state.generalInfo,
           [name] : value,
@@ -100,7 +74,7 @@ class Form extends Component {
           <form onSubmit = {this.handleSubmit}>
               <GeneralInfo 
               handleInputChange = {this.handleInputChange} 
-              generalInfo = {this.state} />
+              generalInfo = {this.state.generalInfo} />
               <button className = "generateButton">Generate</button>
           </form>
       )
