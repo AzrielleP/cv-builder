@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
 
 class GeneralInfo extends Component {
-  
+  constructor() {
+    super();
+    this.state = {
+      generalInfo: {
+        contact: {},
+      },
+    };
+  }
+
+  componentDidMount() {
+    const data = JSON.parse(localStorage.getItem('data'));
+    if (data.generalInfo) {
+      this.setState({
+        generalInfo: data.generalInfo,
+      });
+    } else {
+      this.setState({
+        generalInfo: {
+          contact: {},
+        },
+      });
+    }
+  }
+
   render() {
-    const value = this.props.generalInfo;
-    const handler = this.props.handleInputChange;
+    const value = this.state.generalInfo;
+    const handler = this.props.handleGeneralInfoChange;
 
     return (
-      <div className="category">
+      <div className="generalInfo">
         <h2>General Info</h2>
-        <div className = "divider">
+        <div className="divider">
           <div>
             <label htmlFor="name">
               <p>Full Name *</p>
             </label>
             <input
-                type="text"
-                name="name"
-                id="name"
-                value={value.name || ''}
-                onChange= {handler}
-                  
-                required
-              />
+              type="text"
+              name="name"
+              id="name"
+              value={value.name || ''}
+              onChange={handler}
+              required
+            />
             <label htmlFor="title">
               <p>Job Title *</p>
               <input
@@ -39,10 +61,10 @@ class GeneralInfo extends Component {
             <p>Career Summary</p>
             <textarea
               id="careerSummary"
-              name = "careerSummary"
+              name="careerSummary"
               value={value.careerSummary || ''}
               onChange={handler}
-              rows = "7"
+              rows="7"
             />
           </label>
         </div>
@@ -54,7 +76,7 @@ class GeneralInfo extends Component {
                 type="text"
                 name="address"
                 id="address"
-                className = "subCategory"
+                className="subCategory"
                 value={value.contact.address || ''}
                 onChange={handler}
                 required
@@ -66,7 +88,7 @@ class GeneralInfo extends Component {
                 type="email"
                 name="email"
                 id="email"
-                className = "subCategory"
+                className="subCategory"
                 value={value.contact.email || ''}
                 onChange={handler}
                 required
@@ -78,7 +100,7 @@ class GeneralInfo extends Component {
                 type="number"
                 name="phone"
                 id="phone"
-                className = "subCategory"
+                className="subCategory"
                 value={value.contact.phone || ''}
                 onChange={handler}
                 required
@@ -92,33 +114,33 @@ class GeneralInfo extends Component {
                 type="text"
                 name="website"
                 id="website"
-                className = "subCategory"
+                className="subCategory"
                 value={value.contact.website || ''}
                 onChange={handler}
               />
             </label>
             <label htmlFor="linkedIn">
-            <p>LinkedIn</p>
-            <input
-              type="text"
-              name="linkedIn"
-              id="linkedIn"
-              className = "subCategory"
-              value={value.contact.linkedIn || ''}
-              onChange={handler}
-            />
-          </label>
-          <label htmlFor="gitHub">
-            <p>GitHub</p>
-            <input
-              type="text"
-              name="gitHub"
-              id="gitHub"
-              className = "subCategory"
-              value={value.contact.gitHub || ''}
-              onChange={handler}
-            />
-          </label>
+              <p>LinkedIn</p>
+              <input
+                type="text"
+                name="linkedIn"
+                id="linkedIn"
+                className="subCategory"
+                value={value.contact.linkedIn || ''}
+                onChange={handler}
+              />
+            </label>
+            <label htmlFor="gitHub">
+              <p>GitHub</p>
+              <input
+                type="text"
+                name="gitHub"
+                id="gitHub"
+                className="subCategory"
+                value={value.contact.gitHub || ''}
+                onChange={handler}
+              />
+            </label>
           </div>
         </div>
       </div>

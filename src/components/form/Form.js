@@ -3,21 +3,19 @@ import './css/form.css';
 
 // Import child components
 import GeneralInfo  from './form-child-components/GeneralInfoForm';
+import WorkExperience from './form-child-components/WorkExperience';
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      generalInfo: {
-        contact: {
-        },
-      }
-    }
-    this.handleInputChange = this.handleInputChange.bind(this);
+
+
+    this.handleGeneralInfoChange = this.handleGeneralInfoChange.bind(this);
+    this.handleWorkChange = this.handleWorkChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
-  handleInputChange(e) {
+
+  handleGeneralInfoChange(e) {
     const {name, value, className} = e.target;
     if (className === 'subCategory') {
       this.setState({
@@ -45,18 +43,36 @@ class Form extends Component {
     }
   }
 
-  componentDidMount() {
-    const data = JSON.parse(localStorage.getItem('data'));
-    if (data) {
+  handleWorkChange(e) {
+    const {name, value, className, index} = e.target;
+    if (className === 'subCategory') {
       this.setState({
-        generalInfo: data.generalInfo
+        ...this.state,
+        workExperience: [
+          ...this.state.workExperience,
+          {
+            ...this.state.workExperience[index],
+            tasks: [
+              ...this.state.workExperience[index].tasks,
+              value
+            ]
+          },
+        ]
       })
     }
     else {
       this.setState({
-        generalInfo: {
-          contact: {}
-        }
+        ...this.state,
+        workExperience: [
+          ...this.state.workExperience,
+          {
+            ...this.state.workExperience,
+            [name] : value,
+            tasks: [
+              ...this.state.workExperience.tasks
+            ]
+          },
+        ]
       })
     }
   }
@@ -69,12 +85,17 @@ class Form extends Component {
   }
 
   render() {
-    console.log(this.state)
       return(
           <form onSubmit = {this.handleSubmit}>
               <GeneralInfo 
-              handleInputChange = {this.handleInputChange} 
-              generalInfo = {this.state.generalInfo} />
+                handleGeneralInfoChange = {this.handleGeneralInfoChange} 
+                
+              />
+
+              <WorkExperience
+                handleWorkChange = {this.handleWorkChange}
+               />
+
               <button className = "generateButton">Generate</button>
           </form>
       )
