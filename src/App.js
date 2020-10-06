@@ -1,45 +1,24 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import Form from './components/form/Form';
 import Output from './components/output/Output';
 
 import './css/App.css';
 
-class App extends Component {
+function App() {
+  const [form, setToForm] = useState(true);
+  const [output, setToOutput] = useState(false);
 
-  constructor() {
-    super();
-    this.state = {
-      form: true,
-      output: false
-    }
+  const handleChange = () => {
+    setToForm((previous) => !previous);
+    setToOutput((previous) => !previous);
+  };
 
-    this.handleOutput = this.handleOutput.bind(this);
-    this.handleForm = this.handleForm.bind(this);
-  }
-
-  handleOutput() {
-    this.setState({
-      form: false,
-      output: true
-    })
-  }
-
-  handleForm() {
-    this.setState({
-      form: true,
-      output: false
-    })
-  }
-
-render() {
   return (
     <main>
-      {this.state.form && <Form moveToOutput = {this.handleOutput}/>}
-      {this.state.output && <Output moveToForm = {this.handleForm} />}
-
+      {form && <Form moveToOutput={handleChange} />}
+      {output && <Output moveToForm={handleChange} />}
     </main>
-  )
-}
+  );
 }
 
 export default App;
