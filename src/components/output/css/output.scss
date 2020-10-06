@@ -1,0 +1,84 @@
+$head-font: 'Raleway', sans-serif;
+$body-font: 'Roboto', sans-serif;
+
+$dark-blue: #1d3557;
+$blue: #457b9d;
+$light-blue: #a8dadc;
+$light-grey: #e5e5e5;
+$white: #f4fdf1;
+$black: #050a0f;
+$red: #e63946;
+
+.actionsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 50px;
+    padding: 1em 3em;
+    background-color: $dark-blue;
+    button {
+        outline: none;
+        border: none;
+        background: none;
+        font: 700 1.5em $body-font;
+        text-transform: uppercase;
+        color: $white;
+    }
+}
+
+.toPrint {
+    margin: auto;
+    padding: 2em;
+}
+
+.generalInfoOutput {
+    h1 {
+        margin: 0;
+        font: 700 3em $head-font;
+        color: $black;
+    }
+    .mainInfo {
+        h2 {
+            font-family: $body-font;
+            color: $red;
+        }
+        p {
+            font-family: $body-font;
+            color: $black;
+        }
+    }
+
+    .contact {
+        margin: 2em 0;
+        p {
+            display: flex;
+            align-items: center;
+            flex: wrap;
+            font: 0.8em $body-font;
+            color: $black;
+            i {
+                margin-right: 1em;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .generalInfoOutput {
+        .divider {
+            align-items: flex-end;
+        }
+        .contact {
+            margin: 0 0 0 5em;
+        }
+    }
+    
+}
+
+@media screen and (min-width: 1024px) {
+    .toPrint {
+        width: 900px;
+        padding: 3em 0;
+    }
+}
