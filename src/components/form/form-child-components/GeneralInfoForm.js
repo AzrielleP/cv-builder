@@ -43,7 +43,7 @@ export default function GeneralInfo(props) {
           />
         </label>
       </div>
-      <div>
+      <div className = "divider">
         <div>
           <label htmlFor="address">
             <p>Address *</p>

@@ -3,8 +3,8 @@ h2 {
   color: #1d3557;
 }
 
-.category {
-  padding: 1.5em;
+form {
+  padding: 2em;
 }
 
 label p {
@@ -36,6 +36,33 @@ textarea {
   font: bold 0.8em "Roboto", sans-serif;
   text-transform: uppercase;
   color: #f4fdf1;
+}
+
+@media screen and (min-width: 768px) {
+  .divider {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .divider div:first-child {
+    width: 50%;
+    margin-right: 1em;
+  }
+  .divider label,
+.divider div {
+    width: 50%;
+    margin-left: 1em;
+  }
+  .divider label textarea,
+.divider div textarea {
+    margin-bottom: 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  form {
+    width: 950px;
+    margin: auto;
+  }
 }
 
 /*# sourceMappingURL=form.css.map */

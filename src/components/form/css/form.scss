@@ -16,8 +16,8 @@ h2 {
 }
 
 // Containers
-.category {
-  padding: 1.5em;
+form {
+  padding: 2em;
 }
 
 // inputs and textareas
@@ -53,4 +53,32 @@ textarea {
   font: bold 0.8em $body-font;
   text-transform: uppercase;
   color: $white;
+}
+
+@media screen and (min-width: 768px) {
+  // Containers
+  .divider {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    div:first-child {
+      width: 50%;
+      margin-right: 1em;
+    }
+    label, 
+    div {
+      width: 50%;
+      margin-left: 1em;
+      textarea {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  form {
+    width: 950px;
+    margin: auto;
+  }
 }
