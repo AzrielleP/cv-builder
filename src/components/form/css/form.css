@@ -1,5 +1,6 @@
-h2 {
-  font: 700 2em "Raleway", sans-serif;
+h2 span {
+  margin-left: 0.5em;
+  font: 700 1.5em "Raleway", sans-serif;
   color: #1d3557;
 }
 

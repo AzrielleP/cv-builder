@@ -11,8 +11,12 @@ $red: #e63946;
 
 // Heading
 h2 {
-  font: 700 2em $head-font;
-  color: $dark-blue;
+  span {
+    margin-left: 0.5em;
+    font: 700 1.5em $head-font;
+    color: $dark-blue;
+  }
+  
 }
 
 // Containers
